@@ -26,7 +26,13 @@ pipeline {
         stage('Building image') {
             steps{
                 script {
-                    sh "docker build -t \$registry:\$BUILD_NUMBER ./AWS_ExampleProject/"
+                    docker.withRegistry('https://registry.example.com', 'DockerhubCred') {
+                    
+                        def customImage = docker.build("1almamun/aws_docker_example:${env.BUILD_ID}")
+
+                        /* Push the container to the custom Registry */
+                        customImage.push()
+                    }
                 }
             }
         }
