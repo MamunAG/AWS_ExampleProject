@@ -4,16 +4,13 @@ pipeline {
     environment {
         // Define environment variables if needed
 
-        DOCKER_HUB_CREDENTIALS = credentials('DockerhubCred')
-        DOCKER_IMAGE_NAME = '1almamun/aws_docker_example'
-        DOCKER_IMAGE_TAG = 'latest'
-
+       // DOCKER_HUB_CREDENTIALS = credentials('DockerhubCred')
+       // DOCKER_IMAGE_NAME = '1almamun/aws_docker_example'
+       // DOCKER_IMAGE_TAG = 'latest'
 
         registry = '1almamun/aws_docker_example'
         registryCredentialUp = 'DockerHubUserPass'
         dockerImage = ''
-
-
     }
 
     stages {
@@ -22,9 +19,8 @@ pipeline {
                 echo 'Pipeline start.'
             }
         }
-
     
-        stage('Building our image') {
+        stage('Building image') {
             steps{
                 script {
                     dockerImage = docker.build registry + ":$BUILD_NUMBER"
@@ -32,7 +28,7 @@ pipeline {
             }
         }
 
-        stage('Deploy our image') {
+        stage('Push to dockerhub') {
             steps{
                 script {
                     docker.withRegistry( '', registryCredentialUp ) {
