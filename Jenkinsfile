@@ -11,7 +11,6 @@ pipeline {
 
         registry = '1almamun/aws_docker_example'
         registryCredentialUp = 'DockerHubUserPass'
-        registryCredential = 'DockerhubCred'
         dockerImage = ''
 
 
@@ -27,7 +26,7 @@ pipeline {
         stage('Deploy our image') {
 steps{
 script {
-docker.withRegistry( '', registryCredential ) {
+docker.withRegistry( '', DOCKER_HUB_CREDENTIALS ) {
 dockerImage.push()
 }
 }
