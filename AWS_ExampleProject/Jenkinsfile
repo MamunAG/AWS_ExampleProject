@@ -17,7 +17,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 // Build and tag Docker image
-                sh "docker build -t \$DOCKER_IMAGE_NAME:\$DOCKER_IMAGE_TAG ./aws_docker_example/"
+                sh "docker build -t \$DOCKER_IMAGE_NAME:\$DOCKER_IMAGE_TAG"
             }
         }
     
