@@ -23,15 +23,24 @@ pipeline {
             }
         }
 
-    stage('Deploy our image') {
-        steps{
-            script {
-                docker.withRegistry( '', registryCredentialUp ) {
-                    dockerImage.push()
-                }   
+    
+        stage('Building our image') {
+            steps{
+                script {
+                    dockerImage = docker.build registry + ":$BUILD_NUMBER"
+                }
             }
         }
-    }
+
+        stage('Deploy our image') {
+            steps{
+                script {
+                    docker.withRegistry( '', registryCredentialUp ) {
+                        dockerImage.push()
+                    }   
+                }
+            }
+        }
 
         stage('Cleaning up') {
             steps{
