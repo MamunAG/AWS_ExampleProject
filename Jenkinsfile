@@ -10,7 +10,7 @@ pipeline {
 
 
         registry = '1almamun/aws_docker_example'
-        registryCredential = '1almamun'
+        registryCredential = 'DockerHubUserPass'
         dockerImage = ''
 
 
