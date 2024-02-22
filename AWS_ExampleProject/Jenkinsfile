@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Hello') {
             steps {
-                echo 'From directly project file.'
+                echo 'build count keep to 3'
             }
         }
     }
