@@ -26,7 +26,7 @@ pipeline {
         stage('Building image') {
             steps{
                 script {
-                    docker.withRegistry('https://registry.example.com', 'DockerHubUserPass') {
+                    docker.withRegistry('https://registry.hub.docker.com/v2/', 'DockerHubUserPass') {
                     
                         def customImage = docker.build("1almamun/aws_docker_example:${env.BUILD_ID}")
 
