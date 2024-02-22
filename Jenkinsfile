@@ -23,20 +23,15 @@ pipeline {
             }
         }
 
-        stage('Building image') {
-            steps{
-                script {
-                    // This step should not normally be used in your script. Consult the inline help for details.
-                    withDockerRegistry(credentialsId: 'DockerHubUserPass', url: 'https://registry.hub.docker.com/v2/') {
-                        //def customImage = docker.build("1almamun/aws_docker_example:${env.BUILD_ID}")
-
-                        /* Push the container to the custom Registry */
-                        //customImage.push()
-                        echo 'successfully logged in.'
-                    }
-                }
-            }
-        }
+        stage('Deploy our image') {
+steps{
+script {
+docker.withRegistry( '', registryCredential ) {
+dockerImage.push()
+}
+}
+}
+}
 
         stage('Cleaning up') {
             steps{
