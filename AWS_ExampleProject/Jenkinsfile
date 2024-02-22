@@ -3,7 +3,7 @@ pipeline {
  
     environment {
         // Define environment variables if needed
-        DOCKER_HUB_CREDENTIALS = credentials('jenkinsDockerHubCred')
+        DOCKER_HUB_CREDENTIALS = credentials('dockerSecretText')
         DOCKER_IMAGE_NAME = 'mamun/AWS_ExampleProject'
         DOCKER_IMAGE_TAG = 'latest'
     }
@@ -19,7 +19,7 @@ pipeline {
             steps {
                 script {
                     // Login to Docker Hub
-                    withCredentials([string(credentialsId: 'jenkinsDockerHubCred', variable: 'DOCKER_HUB_CREDENTIALS')]) {
+                    withCredentials([string(credentialsId: 'dockerSecretText', variable: 'DOCKER_HUB_CREDENTIALS')]) {
                         sh "docker login -u \$DOCKER_HUB_CREDENTIALS_USR -p \$DOCKER_HUB_CREDENTIALS_PSW"
                     }
  
