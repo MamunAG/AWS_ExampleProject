@@ -23,15 +23,15 @@ pipeline {
             }
         }
 
-        stage('Deploy our image') {
-steps{
-script {
-docker.withRegistry( '', DOCKER_HUB_CREDENTIALS ) {
-dockerImage.push()
-}
-}
-}
-}
+    stage('Deploy our image') {
+        steps{
+            script {
+                docker.withRegistry( '', registryCredentialUp ) {
+                    dockerImage.push()
+                }   
+            }
+        }
+    }
 
         stage('Cleaning up') {
             steps{
