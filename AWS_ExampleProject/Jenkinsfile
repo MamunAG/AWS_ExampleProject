@@ -4,7 +4,7 @@ pipeline {
     environment {
         // Define environment variables if needed
         DOCKER_HUB_CREDENTIALS = credentials('DockerhubCred')
-        DOCKER_IMAGE_NAME = 'mamun/AWS_ExampleProject'
+        DOCKER_IMAGE_NAME = '1almamun/aws_docker_example'
         DOCKER_IMAGE_TAG = 'latest'
     }
 
@@ -24,7 +24,7 @@ pipeline {
                     }
  
                     // Build and tag Docker image
-                    sh "docker build -t \$DOCKER_IMAGE_NAME:\$DOCKER_IMAGE_TAG ./AWS_ExampleProject/"
+                    sh "docker build -t \$DOCKER_IMAGE_NAME:\$DOCKER_IMAGE_TAG ./aws_docker_example/"
  
                     // Push Docker image to Docker Hub
                     sh "docker push \$DOCKER_IMAGE_NAME:\$DOCKER_IMAGE_TAG"
