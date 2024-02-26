@@ -9,7 +9,7 @@ pipeline {
        // DOCKER_IMAGE_TAG = 'latest'
 
         registry = '1almamun/aws_docker_example'
-        registryCredentialUp = 'DockerHubUserPass'
+        registryCredentialUp = 'docker_up'
         dockerImage = ''
     }
 
