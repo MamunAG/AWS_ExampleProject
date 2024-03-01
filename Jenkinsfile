@@ -43,6 +43,24 @@ pipeline {
                 sh "docker rmi $registry:$BUILD_NUMBER"
             }
         }
+
+        stage('Deployment') {
+            steps {
+                echo 'Deployment start.'
+            }
+        }
+
+        stage('Checkout SCM') {
+            steps{
+                script{
+                    git credentials: 'github_uk',
+                    url: 'https://github.com/MamunAG/AWS_Deployment.git',
+                    branch: 'main'
+                }
+            }
+        }
+
+
     }
  
     post {
