@@ -44,22 +44,6 @@ pipeline {
             }
         }
 
-        stage('Deployment') {
-            steps {
-                echo 'Deployment start.'
-            }
-        }
-
-        stage('Checkout SCM') {
-            steps{
-                script{
-                    git credentials: 'github_uk',
-                    url: 'https://github.com/MamunAG/AWS_Deployment.git',
-                    branch: 'main'
-                }
-            }
-        }
-
 
     }
  
