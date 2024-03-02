@@ -41,7 +41,6 @@ pipeline {
         stage('Tigger CD Pipeline') {
             steps{
                 script {
-                    //sh "curl -v -k -user jenkins:1102759c67a7f67103f88f4943c7434ffe POST -H 'cache-control:no-cache' -H 'content-type:application/x-www-form-urlencoded' --data 'IMAGE_TAG=${BUILD_NUMBER}' 'http://119.148.39.65:8081/job/CD_Pipeline/buildWithParameters?token=cdPipeTigger' "
                     sh """
                         curl -X POST http://119.148.39.65:8081/job/CD_Pipeline/buildWithParameters \
                         --data-urlencode "IMAGE_TAG=${BUILD_NUMBER}" \
