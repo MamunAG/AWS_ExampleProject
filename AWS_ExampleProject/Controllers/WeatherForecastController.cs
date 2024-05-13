@@ -29,7 +29,7 @@ namespace AWS_ExampleProject.Controllers
             {
                 Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
                 TemperatureC = Random.Shared.Next(-20, 55),
-                Summary = Summaries[Random.Shared.Next(Summaries.Length)] + " <this is by cicd pipeline test 6004 port>"
+                Summary = Summaries[Random.Shared.Next(Summaries.Length)] + " after auth software updated"
             })
             .ToArray();
         }
@@ -42,7 +42,7 @@ namespace AWS_ExampleProject.Controllers
             {
                 Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
                 TemperatureC = Random.Shared.Next(-20, 55),
-                Summary = Summaries[Random.Shared.Next(Summaries.Length)] + " <this is by cicd pipeline test 6004 port>"
+                Summary = Summaries[Random.Shared.Next(Summaries.Length)] + " after auth software updated"
             })
             .ToArray();
         }
