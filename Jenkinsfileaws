@@ -3,7 +3,7 @@ pipeline {
  
     environment {
         // Define environment variables if needed
-//tesr
+//tesr22
        // DOCKER_HUB_CREDENTIALS = credentials('DockerhubCred')
        // DOCKER_IMAGE_NAME = '1almamun/aws_docker_example'
        // DOCKER_IMAGE_TAG = 'latest'
