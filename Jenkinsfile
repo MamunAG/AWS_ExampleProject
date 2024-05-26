@@ -44,7 +44,7 @@ pipeline {
                     sh """
                         curl -X POST http://172.16.100.237:8080/job/CD_Pipeline/buildWithParameters \
                         --data-urlencode "IMAGE_TAG=${BUILD_NUMBER}" \
-                        --user jenkins:115735c0bbed54d44a1d1d87a715607d5b
+                        --user jenkins:11718a324943a4c4a4d2d550f8516632ba
                     """ 
                 }
             }
